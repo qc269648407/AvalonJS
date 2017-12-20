@@ -1,0 +1,38 @@
+<!-- description: BootStrap的使用测试
+     author: QC <17798502614@189.cn> -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./js/avalon.js"></script>
+</head>
+
+<body>
+    <div ms-controller="box">
+        <div ms-css="{width:@w,height:@h,background: @background}" ms-click="click"></div>
+        <p>{{ w }} x {{ h }}</p>
+        <p>W:
+            <input type="text" ms-duplex="w" data-duplex-event="change" />
+        </p>
+        <p>H:
+            <input type="text" ms-duplex="h" />
+        </p>
+    </div>
+    <script>
+        var vm = avalon.define({
+            $id: "box",
+            w: 100,
+            h: 100,
+            background: "red",
+            click: function () {
+                vm.w = parseFloat(vm.w) + 10;
+                vm.h = parseFloat(vm.h) + 10;
+            }
+        })
+    </script>
+</body>
+
+</html>

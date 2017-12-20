@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="./js/avalon.js"></script>
+    <script>
+        //动态添加class
+        avalon.define({
+            $id: 'test',
+            aaa: "aaa bbb ccc",
+            bbb: 'ddd',
+            ccc: ['xxx', 'yyy', 'zzz'],
+            ddd: 'eee',
+            toggle: true,
+            toggle2: false
+        })
+    </script>
+    </script>
+</head>
+
+<body>
+
+    <body ms-controller="test">
+        <div :class="@aaa">直接引用字符串</div>
+        <div :class="@ccc">直接引用数组</div>
+        <div :class="[@aaa, @bbb]">使用数组字面量</div>
+        <div :class="['aaa', 'bbb',(@toggle? 'ccc':'ddd')]">选择性添加类名</div>
+        <div :class="[@toggle && 'aaa']">选择性添加类名</div>
+        <div :class="['aaa', 'bbb',(@toggle2? 'ccc':'ddd')]">选择性添加类名</div>
+        <div :class="[@toggle2 && 'aaa']">选择性添加类名</div>
+        <div :class="[ @ddd + 4]">动态生成类名</div>
+    </body>
+</body>
+
+</html>

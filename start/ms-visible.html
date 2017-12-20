@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="./js/avalon.js"></script>
+    <script>
+        var vm = avalon.define({
+            $id: "test",
+            aaa: "这是被隐藏的内容",
+            toggle: false
+        })
+    </script>
+</head>
+
+<body :controller="test">
+
+    <p>
+        <button type="button" :click='@toggle = !@toggle'>点我</span>
+    </p>
+    <div :visible="@toggle">{{@aaa}}</div>
+</body>
+
+</html>

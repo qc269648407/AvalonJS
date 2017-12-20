@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="./js/avalon.js"></script>
+    <script>
+        //让avalon的扫描引擎跳过某一部分区域, 方便能原样输出
+        var vm = avalon.define({
+            $id: "test",
+            aaa: "XXXX",
+            toggle: false
+        })
+    </script>
+</head>
+<body :controller="test">
+    <div ms-skip='true'>{{@aaa}}</div>
+    <div>{{@aaa}}</div>
+</body>
+
+</html>

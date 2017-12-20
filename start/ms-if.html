@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="./js/avalon.js"></script>
+    <script>
+        //通过属性值决定是否渲染目标元素, 为否时原位置上变成一个注释节点
+        var vm = avalon.define({
+            $id: 'test',
+            aaa: {
+                bbb: {
+                    ccc:1
+                }
+            },
+            show: function (aaa, bbb, ccc) {
+                var obj = aaa[bbb]
+                if (obj) {
+                    return obj[ccc]
+                }
+                return '0'
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <div ms-controller="test">
+        <div ms-if="@aaa.bbb">
+            {{@show(@aaa, 'bbb', 'ccc')}}
+        </div>
+    </div>
+</body>
+
+</html>

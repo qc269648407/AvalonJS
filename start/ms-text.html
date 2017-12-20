@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="./js/avalon.js"></script>
+    <script>
+        var vm = avalon.define({
+            $id: "test",
+            aaa: "12345xzxx"
+        })
+    </script>
+</head>
+
+<body>
+    <div ms-controller="test">
+        <span ms-text="@aaa">不使用过滤器</span>
+        <span ms-text="@aaa | uppercase">使用过滤器</span>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="./js/avalon.js"></script>
+    <script>
+        //作用就是在里面加上html
+        var vm = avalon.define({
+            $id: "test",
+            aaa: "loading..."
+        })
+        //异步加载数据
+        // jQuery.ajax({
+        //     url: 'action.do',
+        //     success: function (data) {
+        //         vm.aaa = data.html
+        //     }
+        // })
+    </script>
+</head>
+
+<body>
+
+    <body :controller="test">
+
+        <div ms-html="@aaa"></div>
+    </body>
+</body>
+
+</html>
