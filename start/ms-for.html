@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="./js/avalon.js"></script>
+    <script>
+
+//循环方法 同v-for
+        //ms-for还可以配套data-for-rendered回调,当列表渲染好时执行此方法
+        var vm = avalon.define({
+            $id: "test",
+            aaa: ['aaa', 'bbb', 'ccc'],
+            bbb: {
+                a: 1,
+                b: 2,
+                c: 3
+            },
+            ccc: [{
+                a: 'aaa'
+            }, {
+                a: 'bbb'
+            }, {
+                a: 'ccc'
+            }],
+        })
+    </script>
+</head>
+
+<body>
+    <div ms-controller="test">
+        <ul>
+            <li ms-for="(index, n) in @aaa">{{index}}-{{n}}</li>
+        </ul>
+        <ul>
+            <li ms-for="(k, n) in @bbb">{{k}}-{{n}}</li>
+        </ul>
+        <ul>
+            <li ms-for="(index,n) in @ccc">{{index}}-{{n}}-{{n.a}}</li>
+        </ul>
+        <ul>
+            <li ms-for="n in @ccc">{{n.a}}</li>
+        </ul>
+
+    </div>
+</body>
+
+</html>
