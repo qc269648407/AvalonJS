@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="./js/avalon.js"></script>
+    <script>
+        avalon.define({
+            $id: 'test',
+            aaa: '33',
+            bbb: ['22']
+        })
+    </script>
+</head>
+
+<body>
+    <div ms-controller="test">
+        <input type="radio" value="11" ms-duplex="@aaa" />
+        <input type="radio" value="22" ms-duplex="@aaa" />
+        <input type="radio" value="33" ms-duplex="@aaa" />
+        <input type="checkbox" value="11" ms-duplex="@bbb" />
+        <input type="checkbox" value="22" ms-duplex="@bbb" />
+        <input type="checkbox" value="33" ms-duplex="@bbb" />
+        <p>radio: {{@aaa}}; checkbox:{{@bbb}}</p>
+    </div>
+</body>
+
+</html>
