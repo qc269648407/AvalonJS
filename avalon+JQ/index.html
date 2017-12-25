@@ -1,4 +1,4 @@
-<!-- description: AvalonJS的测试
+<!-- description: AvalonJS+JQ的混合使用测试
      author: QC <17798502614@189.cn> -->
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -8,18 +8,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="./js/avalon.js"></script>
+    <script src="./js/jquery-1.12.0.min.js"></script>
 </head>
 
 <body>
     <div ms-controller="box">
         <div ms-css="{width:@w,height:@h,background: @background}" ms-click="click"></div>
-        <p>{{ w }} x {{ h }}</p>
+        <p>{{ @w }} x {{ @h }}</p>
         <p>W:
-            <input type="text" ms-duplex="w" data-duplex-event="change" />
+            <input type="text" ms-duplex="@w" data-duplex-event="change" />
         </p>
         <p>H:
-            <input type="text" ms-duplex="h" />
+            <input type="text" ms-duplex="@h" />
         </p>
+        <div class="clickDiv" style="width:200px;height:50px;background:red;">click</div>
     </div>
     <script>
         var vm = avalon.define({
@@ -31,7 +33,11 @@
                 vm.w = parseFloat(vm.w) + 10;
                 vm.h = parseFloat(vm.h) + 10;
             }
-        })
+        });
+        $(".clickDiv").on("click", function () {
+            vm.w = vm.w+100;
+            vm.h = vm.h+100;
+        });
     </script>
 </body>
 
